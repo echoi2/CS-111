@@ -1,0 +1,35 @@
+NAME: Eugene Choi
+EMAIL: echoi2@g.ucla.edu
+ID: 905368197
+
+Files Included:
+	lab4b.c: Contains the c code for an embedded application that builds and runs on an embedded system.
+
+	Makefile: Contians the code used to create the executable for lab4b.c, the code to call upon smoke_test.sh to check the functionallity of lab4b.c, the ability to remove the tar file and the executable via clean, and the ability to create the tarball distribution file.
+
+	README: Contains description of all included files along with the sources used for the asmt.
+
+	smoke_test.sh: Contains a variety of sanity checks that tests for the correctness of lab4b.c
+
+	compile.sh: Code that determines whether you compile the DUMMY version or normal version executable of lab4b.c
+
+Sources Used:
+https://learn.adafruit.com/tmp36-temperature-sensor/using-a-temp-sensor
+https://www.linuxtechi.com/compare-numbers-strings-files-in-bash-script/
+https://stackoverflow.com/questions/6834487/what-is-the-dollar-question-mark-variable-in-shell-scripting
+https://iotdk.intel.com/docs/master/mraa/aio_8h.html#a2fe635f28ab777569b19a7ffe8e557d1
+https://linux.die.net/man/2/creat
+https://www.quora.com/What-is-the-best-way-to-clear-an-array-using-C-language
+https://www.tutorialspoint.com/c_standard_library/c_function_strstr.htm
+https://linux.die.net/man/3/dprintf
+https://stackoverflow.com/questions/19431674/rounding-floats-to-nearest-10th
+https://www.quora.com/What-is-the-difference-between-2d-and-02d-in-C-language-What-is-the-logic
+https://blog.prepscholar.com/convert-celsius-to-fahrenheit
+https://www.tutorialspoint.com/c_standard_library/c_function_memset.htm
+https://linux.die.net/man/3/localtime
+https://linux.die.net/man/3/clock_gettime
+https://iotdk.intel.com/docs/master/mraa/gpio_8h.html#a61e3a45eb7daad362af4a116d01111fa
+https://drive.google.com/drive/folders/0B6dyEb8VXZo-N3hVcVI0UFpWSVk
+https://wiki.seeedstudio.com/Grove-Temperature_Sensor_V1.2/#software
+
+Also referenced from piazza, ta notes, my project 1b and 0

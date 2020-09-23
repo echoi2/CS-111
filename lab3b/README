@@ -1,0 +1,31 @@
+#NAME: Eugene Choi
+#EMAIL: echoi2@g.ucla.edu
+#ID: 905368197
+
+Files Included:
+        lab3b.py: Python3 script that iterates through the input CSV file while grabbing data to populate the fields of each defined class (example being the ext2_super class). These fields are then analyzed to discover then report all detected inconsistencies to sys.stdout.
+
+        Makefile: Used to build and run deliverable program. Has 3 options (default, clean, dist). Default erases any old existing symbolic link to lab3b.py then creates a new symbolic link which points to lab3b.py. Clean erases the tarball dist and the symbolic link to lab3b.py. Dist creates a tarball dist to be submitted
+
+        README: Contains additional info about the included files and the sources used for the project.
+
+Sources Used:
+        https://stackoverflow.com/questions/9139897/how-to-set-default-value-to-all-keys-of-a-dict-object-in-python
+        https://micropyramid.com/blog/understand-self-and-__init__-method-in-python-class/
+        https://www.w3schools.com/python/python_lambda.asp
+        https://thomas-cokelaer.info/tutorials/python/boolean.html
+        https://treyhunner.com/2016/04/how-to-loop-with-indexes-in-python/
+        https://www.geeksforgeeks.org/python-count-number-of-items-in-a-dictionary-value-that-is-a-list/
+        https://realpython.com/python-for-loop/
+        https://cs.nyu.edu/courses/spring09/V22.0202-002/lectures/lecture-24.html
+        https://www.techbeamers.com/python-dictionary/#append-in-a-dictionary
+        https://realpython.com/python-keyerror/
+        https://www.pythonforbeginners.com/dictionary/how-to-use-dictionaries-in-python#:~:text=About%20Dictionaries%20in%20Python,with%20commas%20%2C%20between%20each%20pair.&text=As%20with%20lists%20we%20can,printing%20the%20reference%20to%20it.
+        https://www.tutorialspoint.com/python3/list_append.htm
+        https://techvidvan.com/tutorials/python-lists/
+        http://cs.smith.edu/~nhowe/Teaching/csc262/oldlabs/ext2.html
+        https://stackoverflow.com/questions/8949252/why-do-i-get-attributeerror-nonetype-object-has-no-attribute-something
+        https://stackoverflow.com/questions/35478504/set-global-variable-in-python-always-return-none-value-in-main
+        https://stackoverflow.com/questions/15286401/print-multiple-arguments-in-python
+        https://www.w3schools.com/python/numpy_array_slicing.asp
+        Made a good amount of references to the TA sample code and my project 3a

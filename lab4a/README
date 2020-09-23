@@ -1,0 +1,28 @@
+NAME: Eugene Choi
+EMAIL: echoi2@g.ucla.edu
+ID: 905368197
+
+Serial Number: BBGW19010698
+MAC Address: f0:45:da:eb:c6:5b
+MAC: 2CF7F106A28E
+
+Files Included:
+	my_beaglebone.jpg: Selfie that I took with my beaglebone that shows the serial number and the MAC number. (Have the same serial/MAC # as a friend because I had to redo the project on his beaglebone b/c mine wasn't coming in on time in the mail. (already sent a seperate email about this and got clearance from TA)).
+
+	connected.png: Shows the name I gave under hostname, the IP address, the MAC address, and pinging to google to show that it has network access.
+
+	copy.png: Shows how I used filezilla to successfully transfer over the hello_world.c file over to Beaglebone
+
+	build_run.png: Shows compilation and execution of hello_world executable.
+
+	git.png: Shows the instillation of git and the cloning of one of my test git repositories.
+
+	Makefile: Removes tar.gz file after calling make clean and also creates a tarball when calling make dist.
+
+	README: Additional information on sources used and the files included.
+
+Additional Sources:
+https://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/#:~:text=Click%20the%20%E2%80%9CRestart%E2%80%9D%20button%20to,able%20to%20install%20unsigned%20drivers.
+
+https://git-scm.com/docs/git-clone
+

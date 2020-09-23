@@ -1,0 +1,28 @@
+NAME: Eugene Choi
+EMAIL: echoi2@g.ucla.edu
+ID: 905368197
+
+Files Included:
+	lab4c_tcp.c:
+	Contains C code that allows the user to connect to the TCP logging server when command line is provided with the correct host name, any valid 9 digit number, valid log name and valid port number.
+
+	lab4c_tls.c:
+	Contains C code that allows the user to connect to the TLS logging server when command line is provided with the correct host name, any valid 9 digit number, valid log name and valid port number.
+
+	Makefile:
+	Used to create the executables for lab4c_tcp.c and lab4c_tls.c via make default command. The make clean command removes the taraball file and the executables returning the page to its original state. Make dist command creates the tarball file that will be submitted and tested.
+
+	README:
+	Contains descriptions for the included files and the sources referenced for the assignment.
+
+	compile.sh:
+	A shell script that is used for building the executables for the c files lab4c_tcp.c and lab4c_tls.c.
+
+Sources Used:
+https://www.openssl.org/docs/man1.0.2/man3/SSL_free.html
+https://www.openssl.org/docs/man1.0.2/man3/SSL_connect.html
+https://www.tutorialspoint.com/c_standard_library/c_function_sprintf.htm
+https://www.openssl.org/docs/man1.0.2/man3/err.html#:~:text=When%20a%20call%20to%20the,codes%20and%20textual%20error%20messages.&text=ERR_clear_error(3)%20can%20be%20used%20to%20clear%20the%20error%20queue.
+https://www.openssl.org/docs/man1.1.1/man3/SSL_read.html
+https://linux.die.net/man/3/optind
+Most of the assignment code is a rehash of my assignment 4b mixed in with what was provided by the TA.

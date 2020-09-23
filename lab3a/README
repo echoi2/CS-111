@@ -1,0 +1,37 @@
+NAME: Eugene Choi
+EMAIL: echoi2@g.ucla.edu
+ID: 905368197
+
+Files Included:
+	lab3a.c:
+	Contains the C code that reports the key characteristics of a file system based on the provided input.
+
+	Makefile:
+	Used to create lab3a executable, to clean the directory of the .tar and exectuable files, and to build the tar ball distribution.
+	
+	README:
+	Contains information on the included files and the sources used for the assignment.
+	
+	ext_fs.h:
+	Header file containing file system information and variable.
+
+Resources Used:
+https://www.tutorialspoint.com/c_standard_library/c_function_time.htm
+tutorialspoint.com/c_standard_library/c_function_gmtime.htm
+https://www.geeksforgeeks.org/gmtime-function-in-c-c/
+https://www.gnu.org/software/libc/manual/html_node/Testing-File-Type.html
+https://www.interviewcake.com/concept/java/bit-shift
+http://byteliu.com/2019/05/10/Understanding-File-System-Superblock-in-Linux/#:~:text=The%20main%20important%20thing%20to,to%20the%20system%20page%20size.
+https://flylib.com/books/en/2.48.1/group_descriptor_tables.html
+http://cs.smith.edu/~nhowe/Teaching/csc262/oldlabs/ext2.html
+https://docs.microsoft.com/en-us/cpp/cpp/data-type-ranges?view=vs-2019
+https://www.tutorialspoint.com/cprogramming/c_operators.htm
+https://man7.org/linux/man-pages/man2/pread.2.html
+https://pubs.opengroup.org/onlinepubs/007904975/functions/open.html
+https://www.nongnu.org/ext2-doc/ext2.html#i-block
+https://www.nongnu.org/ext2-doc/ext2.html#s-first-data-block
+https://stackoverflow.com/questions/15515605/how-to-print-indirect-block-in-ext2
+https://www.youtube.com/watch?v=tMVj22EWg6A
+https://man7.org/linux/man-pages/man3/memcpy.3.html
+
+Also referenced TA slides

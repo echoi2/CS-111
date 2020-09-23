@@ -1,0 +1,27 @@
+NAME: Eugene Choi
+EMAIL: echoi2@g.ucla.edu	
+UID: 905368197
+
+Files and Descriptions:
+lab1a.c:
+	Contains the source code file used when building the executable via Makefile. The program works by passing input and output between a parent and child process. The different options allowed are --shell and --debug (--debug was however optional so I did not do). By specifying the shell option, you can two inputs between terminal and shell.  
+
+Makefile:
+	Used to compile the program by building an executable, make a tarball, and to clean the directory to restore it back to its original state.
+
+README:
+	Includes a description of what is actually in the project and some of the sources used.
+Sources:
+https://www.tutorialspoint.com/inter_process_communication/inter_process_communication_pipes.htm (helped with understanding how pipes worked)
+https://ccle.ucla.edu/pluginfile.php/3403257/mod_resource/content/0/Week2.pdf	
+https://ccle.ucla.edu/pluginfile.php/3382673/mod_resource/content/1/Week%202.pdf
+https://www.geeksforgeeks.org/dup-dup2-linux-system-call/ (helped with understanding what dup and dup2 did)
+https://www.geeksforgeeks.org/pipe-system-call/ (Helped with understanding piping)
+http://www.qnx.com/developers/docs/6.5.0SP1.update/com.qnx.doc.neutrino_lib_ref/e/execvp.html (Helped with understanding how execvp worked)
+http://unixwiz.net/techtips/remap-pipe-fds.html (Helped with understanding piping)
+http://man7.org/linux/man-pages/man2/kill.2.html
+https://linux.die.net/man/2/waitpid
+http://man7.org/linux/man-pages/man2/poll.2.html
+http://www.qnx.com/developers/docs/6.5.0SP1.update/com.qnx.doc.neutrino_lib_ref/e/execvp.html
+https://en.wikipedia.org/wiki/Carriage_return
+http://man7.org/linux/man-pages/man2/signal.2.html

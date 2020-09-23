@@ -1,0 +1,148 @@
+NAME: Eugene Choi
+EMAIL: echoi2@g.ucla.edu
+ID: 905368197
+SLIPDAYS: 0
+
+
+Files:
+
+lab2_add.c: 
+Implementation of code that allows adding to a shared variable named counter utilizing different options that are entered from the command line. Emphasises concurrency.
+
+lab2_list.c: 
+Implementation of code that initializes a circular sorted doubly linked list, appends to it, grabs its size, and deletes its elements while utilizing different options that are entered from the command line. Emphasises concurrency.
+
+lab2_add.csv:
+Print out of all the test case outputs for lab2_add 
+ 
+lab2_add-1.png: 
+plot of the threads and iterations that run without failure
+
+lab2_add-2.png: 
+plot of the cost of yielding
+
+lab2_add-3.png: 
+plot of per operation cost vs number of iterations
+
+lab2_add-4.png: 
+plot of the threads and iterations that run without failure with yields under each sync option
+
+lab2_add-5.png: 
+plot of per operation costs vs the number of threads
+
+lab2_list-1.png: 
+plot of cost per operations vs iterations
+
+lab2_list-2.png: 
+plot of unprotected threads and iterations that run without failure
+
+lab2_list-3.png: 
+plot of protected iterations that run w/o failure
+
+lab2_list-4.png: 
+plot of scalability of synchronization mechanisms
+
+SortedList.h: 
+header file for linked lists
+
+SortedList.c: 
+C source file implementation for linked list functions
+
+Makefile: Makefile that generates files for submission.
+
+test.sh: Test script for both list and add.
+
+README: Description of files contained in lab and question answers 
+
+
+Questions:
+
+2.1.1 -causing conflicts:
+
+Answer:
+It takes many iterations before errors are seen because a large amount of iterations increases the possibility that multiple threads might try to execute a critical section of code which leads to a race condition (in our case it seems to be a data race). The outcome which should be deterministic becomes indeterminate as the "total at the end of the run" becomes a non-zero value much more frequently when the iteration value is much higher. Significantly lower iterations seem to fail much less often because there is a much smaller opportunity/window for multiple threads to access a critical section of code which leads to a race condition.
+Side Note: The possibility of an error also increases with the number of threads used. Higher number of threads can lead to a more likely chance of a race condition occuring.
+
+2.1.2 -cost of yielding:
+
+Answer:
+The --yield runs are much slower than the non-yield runs because the --yield runs make an extra system call to sched_yield(), causing the calling thread to let go of the CPU and go to the end of the queue for its static priority. In the meanwhile, a new thread gets a chance to run. Getting valid per-operation timings while using the --yield option is not (at least from my understanding) possible because the sched_yield() call makes the timings for each thread inaccurate by having it increased. Even though the thread is sent to the end of the queue and not executing, the operation time keeps on incrementing and only stops incrementing when the thread completes.
+
+
+2.1.3 - measurement errors:
+
+Answer:
+The average cost per operation drops with increasing iterations because the overhead from the creation of new threads is balanced out by the addition of extra iterations by having the overhead disbersed over those extra iterations. When inspecting the graph, we can assume that when the slope of the graph goes relatively close to zero, then we can conclude that stability has been reached. We can draw the conclusion that the nearly 0 slope line's intersection with the costs per operation axis will give us the correct cost.
+
+2.1.4 - costs of serialization:
+
+Answer:
+All of the options for low numbers of threads perform similarly because the overhead for all the options are much smaller compared to when we have a much higher number of threads. (Higher number of threads leads to more overhead as a result of pthread_create(), the requested options, and pthread_join()). All three protected options slow down as the number of threads rises because as mentioned before, more threads lead to increased overhead. Much more threads will have to wait they compete with each other to retrieve the locks. When one gains the lock, the others have to wait until that lock releases the lock.
+
+2.2.1 - scalability of Mutex
+
+Answer:
+In part 1, as the number of threads increase, the cost per operations also seem to visibly increase for mutex-protected operation until around 4 to 8 threads (where they begin to plateau or the increase becomes much smaller). In part 2, the cost per operations seem to increase visibly even past the 4 threads mark for the mutex-protected operation without really showing apparent signs of plateauing as seen in part 1. For part 1, the shape of the graph seems to look much more plateaued than part 2's graph because the overhead for the threads in part 2 are much larger. Threads have to spend more time in waiting for linked lists because they have to do much more complex operations like insertion, lookup, sumation, and deletion for the linked list unlike part 1 where you are just incrementing and decrementing a global variable by 1.
+
+2.2.2 - scalability of spin locks
+
+Answer:
+The cost per operations vs the number of threads for operations protected by spin locks at the initial 1 thread is smaller than the mutex. As the number of threads increase, the difference between the cost per operations vs the number of threads shows with the spin lock being in general higher than mutex. This is because when a thread encounters a spin lock, the thread is essentially forces itself to try and open the lock instead of going to sleep like a mutex does. By going to sleep, another thread will immediately be able to run unlike the spin lock. Therefore, the cost per operations increass dramatically for an increased amount of threads for spin locks when compared to mutex.
+
+
+
+
+Sources:
+https://www.quora.com/Why-do-we-need-to-give-a-lpthread-option-with-GCC-while-executing-a-threads-related-C-program#:~:text=%2Dl%20is%20a%20GCC%20option,for%20implementing%20threads%20in%20C.
+
+https://www.quora.com/Can-a-process-have-0-threads-or-does-one-process-always-have-one-or-more-threads-of-execution#:~:text=The%20reason%20is%20that%20program,getting%20executed%20after%20getting%20scheduled.&text=Well%2C%200%20threads%20is%20basically,least%20one%20thread%20to%20exist.
+
+https://en.wikipedia.org/wiki/C_data_types
+
+https://www.tutorialspoint.com/cprogramming/c_data_types.htm
+
+https://man7.org/linux/man-pages/man2/sched_yield.2.html
+
+https://pubs.opengroup.org/onlinepubs/007904975/basedefs/sys/types.h.html
+
+https://man7.org/linux/man-pages/man3/clock_gettime.3.html
+
+https://stackoverflow.com/questions/6749621/how-to-create-a-high-resolution-timer-in-linux-to-measure-program-performance (used for the learning how to set up the begin and end clock times)
+
+https://stackoverflow.com/questions/3523442/difference-between-clock-realtime-and-clock-monotonic (used for the begin and end clock times. Clears up some of the differences between some of the specified clock ids)
+
+https://man7.org/linux/man-pages/man3/pthread_create.3.html
+
+https://www.mkssoftware.com/docs/man3/pthread_create.3.asp
+
+https://www.tutorialspoint.com/multithreading-in-c
+
+https://www.geeksforgeeks.org/multithreading-c-2/
+
+https://stackoverflow.com/questions/35061854/creating-multiple-threads-in-c#:~:text=There's%20no%20%22right%22%20or%20%22,don't%20need%20an%20array.
+
+https://www.circuitstoday.com/void-pointers-in-c
+
+https://stackoverflow.com/questions/16016920/type-casting-integer-to-void
+
+https://askubuntu.com/questions/304999/not-able-to-execute-a-sh-file-bin-bashm-bad-interpreter
+
+https://man7.org/linux/man-pages/man3/pthread_join.3.html
+
+https://medium.com/@codingmaths/bin-bash-what-exactly-is-this-95fc8db817bf#:~:text=%2Fbin%2Fbash%20is%20the%20most,well%20developed%20and%20better%20syntax.
+
+https://www.gnu.org/software/make/manual/make.html
+
+https://kahdev.wordpress.com/2008/07/21/generating-random-characters-in-c/
+
+https://www.programiz.com/c-programming/library-function/string.h/strcmp#:~:text=The%20strcmp()%20compares%20two,'%5C0'%20is%20reached.
+
+(links used to help/understand circular doubly linked lists)
+
+https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B#Compound-assignment_operators 
+
+https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/
+
+http://www.cs.uwm.edu/faculty/boyland/classes-archive/fa15.cs351/www/linked-list-variations.html
+
+Used the lecture notes and the discussion notes too for code skeleton
