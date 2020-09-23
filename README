@@ -1,0 +1,46 @@
+NAME: Eugene Choi
+EMAIL: echoi2@g.ucla.edu
+ID: 905368197
+
+References Used:
+1. https://linux.die.net/man/3/getopt_long
+2. https://www.geeksforgeeks.org/input-output-system-calls-c-create-open-close-read-write/
+3. https://www.tutorialspoint.com/c_standard_library/c_function_signal.html
+4. http://man7.org/linux/man-pages/man3/strerror.3.html
+5. notes from Discussion 1A posted on CCLE
+6. fd_juggiling.html link provided for the assignment
+7. my own work done back in 35L for an assignment that worked with file IO
+8. https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/ (used in understanding how to format if statements in shell script)
+9. https://medium.com/@codenameyau/step-by-step-breakdown-of-dev-null-a0f516f53158 (used to understand /dev/null for Makefile
+10. https://linux.die.net/man/1/make
+
+File Descriptions:
+lab0.c: The source file that contains a program which takes in multiple arguments that allow it to either copy stdin to stdout if no sementation fault was caused or exits after having caused a segmentation fault. The viable arguments that this program takes are [--input filename], [--output filename], [--segfault], and [--catch].
+
+[--input filename] -> use the specified file as standard input (making it the new fd0). If you are unable to open the specified input file, report the failure (on stderr, file descriptor 2) using fprintf(3), and exit(2) with a return code of 2.
+[--output filename] -> create the specified file and use it as standard output (making it the new fd1).
+If you are unable to create the specified output file, report the failure (on stderr, file descriptor 2) using fprintf(3), and exit(2) with a return code of 3.
+[--segfault] -> force a segmentation fault (e.g., by calling a subroutine that sets a char * pointer to NULL and then stores through the null pointer). If this argument is specified, do it immediately, and do not copy from stdin to stdout.
+[--catch] -> use signal(2) to register a SIGSEGV handler that catches the segmentation fault, logs an error message (on stderr, file descriptor 2) and exit(2) with a return code of 4.
+
+Makefile: Used to create an executable for the lab0.c file, run a smoke-test for several cases, build a distribution tarball, and to delete all files created by Makefile to return the directory to its freshly untarred state. The executable created is named lab0.c and is used to run your program. Flags that are used in the Makefile for compilation are -g, -Wall, and -Wextra. 
+	  Different options to call are:
+	  	    make lab0 -> default. Builds the lab0 executable.
+		    make check -> runs a quick smoke-test on whether or not the program seems to work, supports the required arguments, and properly reports success or failure.
+		    make clean -> delete all files created by the Makefile, and return the directory to its freshly untarred state.
+		    make dist -> build the distribution tarball.
+
+backtrace.png: shows a segfault and associated stack-trace via gdb session.
+
+breakpoint.png: shows a breakpoint and variable inspection via gdb session. 
+	
+
+Different Smoke-Test Cases and Descriptions of Each:
+1. readTest (checks to see if you try and read from an unreadable file that it should exit with 2.)
+2. writeTest (checks to see if you try and write to an unwritable file that it should exit with 3.)
+3. correctArgsIOTest (checks that if correct arguments are taken in for input and output, it should return 0.)
+4. priorityTest (checks to see that exit 4 should happen 1st when all 4 options are chosen. This also checks for if segfault is caught.)
+5. incorrectArgsTest (checks that the options/arguments input for ./lab0 are correct.)
+6. storingTest (shows that if test passes, even though output is put as the first option, the arguments are actually being stored to variables and then being checked in the desired order which begins with --input first.)
+
+SIDENOTE: For some reason, the .png extension on my computer was coming out capitalized as .PNG so I changed the extension manually back to lower case. Hoping that this does not corrupt the .png files. 
